@@ -8,7 +8,8 @@ class CreateArtists < ActiveRecord::Migration[5.2]
   def change
   end
   
-  sql = <<-SQL
+  def self.create_table
+    sql = <<-SQL
     CREATE TABLE IF NOT EXISTS artists (
       id INTEGER PRIMARY KEY,
       name TEXT,
@@ -18,4 +19,5 @@ class CreateArtists < ActiveRecord::Migration[5.2]
     )
   SQL
   ActiveRecord::Base.connection.execute(sql)
+  end
 end
